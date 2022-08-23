@@ -6,11 +6,11 @@ import {getFirestore } from '@firebase/firestore';
 
 const app = firebase.initializeApp({
   apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: "react-firebase-redux-96006.firebaseapp.com",
-  projectId: "react-firebase-redux-96006",
-  storageBucket: "react-firebase-redux-96006.appspot.com",
-  messagingSenderId: "26503869675",
-  appId: "1:26503869675:web:7427b336578f5cd5b67aae"
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 });
 
 
