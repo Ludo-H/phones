@@ -14,6 +14,7 @@ const Home = () => {
 
     const dispatch = useDispatch();
     const products = useSelector((state) => state.productsReducer);
+    console.log(products)
 
 
     useEffect(() => {
@@ -32,9 +33,6 @@ const Home = () => {
             {user ?
                 <Fragment>
                     <Header user={user} />
-                    <div className='banner'>
-                        <h2>banniere defilente</h2>
-                    </div>
                     <div className='container__categories'>
                         <div className='container__categories__categorie'>
                             <h3>Apple</h3>
