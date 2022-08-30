@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import { auth } from '../utils/firebase.config';
 import { onAuthStateChanged } from 'firebase/auth';
 
-const Cart = () => {
+const Commandes = () => {
 
     const [user, setUser] = useState(null);
 
@@ -19,7 +19,7 @@ const Cart = () => {
             {user ?
                 <div>
                     <Header user={user} />
-                    Cart
+                    Commandes
                 </div>
                 :
                 <p>Connectez vous pour accéder au site, mettre comp loading </p>
@@ -28,4 +28,4 @@ const Cart = () => {
     );
 };
 
-export default Cart;
+export default Commandes;

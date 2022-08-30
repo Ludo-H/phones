@@ -3,12 +3,13 @@ import { auth } from '../../utils/firebase.config'
 
 const SignUp = () => {
 
-    const [displayName, setDisplayName] = useState('')
+    const [displayName, setDisplayName] = useState('');
+    const [error, setError] = useState(false)
 
     const registerEmail = useRef();
     const registerPassword = useRef();
 
-    const handleRegister = (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
 
         try {
@@ -19,6 +20,10 @@ const SignUp = () => {
                     })
                     // on refraichi pour avoir le pseudo à la connexion (sinon displayname reste null dans firebase)
                     window.location.reload()
+                })
+                .catch((error)=>{
+                    console.log(error);
+                    setError(true);
                 })
         } catch (error) {
             console.log(error);
@@ -47,6 +52,7 @@ const SignUp = () => {
                     required
                 />
                 <input type="submit" value='Valider inscription' />
+                <span>{error && "Email déjà utilisé"}</span>
             </form>
         </Fragment>
     );

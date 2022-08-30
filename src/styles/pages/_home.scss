@@ -1,0 +1,22 @@
+.banner{
+    background-color: aqua;
+    height: 100px;
+}
+
+.container__categories{
+    @include flexColumn;
+    
+    &__categorie{
+        border: $borderBlack;
+
+        h3{
+            font-size: 30px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+        }
+    }
+}
+
+.container__products{
+    @include flexCenterColumn;
+}

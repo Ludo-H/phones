@@ -1,0 +1,17 @@
+.product{
+    border: $borderBlack;
+    margin-bottom: 20px;
+
+    img{
+        width: 200px;
+    }
+
+    &__infos{
+        @include flexSpaceBetween;
+
+        p{
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+}

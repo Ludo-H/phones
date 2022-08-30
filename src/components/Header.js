@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { signOut } from "firebase/auth";
+import { auth } from '../utils/firebase.config';
 
-const Header = ({user}) => {
-    console.log(user)
+const Header = ({ user }) => {
+
+    const [displayNav, setDisplayNav] = useState(false)
+
+    const handleLogout = async () => {
+        await signOut(auth);
+        window.location = '/';
+    }
+
     return (
         <div className='header'>
-            <img src="./images/logo.jpg" alt="logo" />
-            <p>{user.displayName}</p>
-            <i className="fa-solid fa-cart-shopping"></i>
+            <NavLink to='/home'>
+                <img src="./images/logo.jpg" alt="logo" />
+            </NavLink>
+            <div className='header__nav'>
+                <p onClick={() => setDisplayNav(!displayNav)}>
+                    {user.displayName}
+                </p>
+                {displayNav &&
+                    <ul>
+                        <NavLink to='/profil'>
+                            <li>Profil</li>
+                        </NavLink>
+                        <NavLink to='/commandes'>
+                            <li>Commandes</li>
+                        </NavLink>
+                        <li onClick={() => handleLogout()}>Se déconnecter</li>
+                    </ul>
+                }
+            </div>
+            <NavLink to='/cart'>
+                <i className="fa-solid fa-cart-shopping"></i>
+            </NavLink>
         </div>
     );
 };
