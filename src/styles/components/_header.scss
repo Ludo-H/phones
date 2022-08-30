@@ -1,0 +1,23 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 2px solid $black;
+
+    img{
+        width: 70px;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    p{
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}
