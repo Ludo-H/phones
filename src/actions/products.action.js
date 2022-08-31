@@ -9,7 +9,6 @@ export const getProducts = ()=>{
     return async (dispatch)=>{
         return await getDocs(collection(db, 'products'))
         .then((res)=>{
-            console.log(res);
             dispatch({
                 type : GET_PRODUCTS,
                 payload : res.docs.map((doc)=>(

@@ -7,9 +7,13 @@ export default function productsReducer(state = initialState, action){
     switch (action.type) {
         case GET_PRODUCTS:
             return action.payload;
+            
         
         case GET_ONE_PRODUCT:
-            return action.payload
+            return ({
+                ...state,
+                productClicked : action.payload
+            })
     
 
         default:
