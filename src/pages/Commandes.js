@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Header from '../components/Header';
 import { auth } from '../utils/firebase.config';
 import { onAuthStateChanged } from 'firebase/auth';
+import Footer from '../components/Footer';
 
 const Commandes = () => {
 
@@ -24,6 +25,7 @@ const Commandes = () => {
                 :
                 <p>Connectez vous pour accéder au site, mettre comp loading </p>
             }
+            <Footer/>
         </Fragment>
     );
 };

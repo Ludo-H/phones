@@ -1,0 +1,51 @@
+.container__product{
+    @include flexCenterColumn;
+
+    img{
+        margin-bottom: 20px;
+    }
+
+    h2{
+        text-transform: uppercase;
+        border-bottom: $borderBlack;
+    }
+
+    #price{
+        margin: 10px;
+        font-weight: bold;
+    }
+
+    select{
+        width: 180px;
+        height: 30px;
+        font-weight: bold;
+        border: $borderBlack;
+    }
+
+    &__quantity{
+        margin-top: 10px;
+        width: 180px;
+        height: 30px;
+
+        label{
+            margin-right: 10px;
+        }
+
+        select{
+            width: 40px;
+            text-align: center;
+        }
+    }
+
+    #description{
+        min-width: 280px;
+        max-width: 500px;
+        text-align: justify;
+        margin: 10px;
+    }
+
+    button{
+        height: 40px;
+    }
+
+}

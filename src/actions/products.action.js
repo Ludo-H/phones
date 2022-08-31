@@ -1,6 +1,6 @@
 import { collection,getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "../utils/firebase.config";
-import {  } from "firebase/firestore";
+
 
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_ONE_PRODUCT = 'GET_ONE_PRODUCT';

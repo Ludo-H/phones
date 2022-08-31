@@ -15,7 +15,7 @@ const Header = ({ user }) => {
     return (
         <div className='header'>
             <NavLink to='/home'>
-                <img src="./images/logo.jpg" alt="logo" />
+                <img src="../images/logo.jpg" alt="logo" />
             </NavLink>
             <div className='header__nav'>
                 <p onClick={() => setDisplayNav(!displayNav)}>

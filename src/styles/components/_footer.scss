@@ -1,0 +1,11 @@
+.footer{
+    @include flexCenter;
+    background-color: $black;
+    height: 80px;
+    margin-top: 50px;
+
+    p{
+        color: $white;
+        
+    }
+}

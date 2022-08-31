@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import Footer from '../components/Footer';
 import Loader from '../components/Loader';
 import Login from '../components/Log/Login';
 import SignUp from '../components/Log/SignUp';
@@ -37,6 +38,7 @@ const Connect = () => {
                     {signUpButton && <SignUp />}
                 </div>
             </div>
+            <Footer/>
         </Fragment>
     );
 };

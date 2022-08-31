@@ -6,6 +6,7 @@ import { auth } from '../utils/firebase.config';
 import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from '../utils/fonctions';
 import Product from '../components/Products/Product';
+import Footer from '../components/Footer';
 
 
 const Home = () => {
@@ -72,6 +73,7 @@ const Home = () => {
                 :
                 <p>Connectez vous pour accéder au site, mettre comp loading </p>
                 }
+                <Footer/>
         </Fragment>
     );
 };
