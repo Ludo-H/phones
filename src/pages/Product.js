@@ -44,6 +44,7 @@ const Product = () => {
                 quantity : quantity.current.value,
                 price : productClicked.price,
                 color : color.current.value,
+                image : productClicked.image,
                 userId : user.uid
             }
             dispatch(addToBasket(item, user.uid))
