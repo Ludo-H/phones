@@ -1,10 +1,12 @@
-import { addDoc, collection, getDocs} from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDocs} from "firebase/firestore";
 import { db } from "../utils/firebase.config";
 
 export const ADD_TO_BASKET = "ADD_TO_BASKET";
 
 // pour récupérer le contenu
 export const GET_BASKET = 'GET_BASKET';
+
+export const DELETE_BASKET_ARTICLE = 'DELETE_BASKET_ARTICLE';
 
 export const addToBasket = (item, uid)=>{
     return async (dispatch)=>{
@@ -29,5 +31,15 @@ export const getBasket = (uid)=>{
                 ))
             })
         })
+    }
+}
+
+export const deleteBasketArticle = (userId, articleId)=>{
+    return async(dispatch)=>{
+        return deleteDoc(doc(db, 'Basket of user ' + userId, articleId))
+        .then(()=> {
+            dispatch({type : DELETE_BASKET_ARTICLE, payload : {articleId}})
+        })
+        .catch((error)=> console.log(error))
     }
 }
