@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
 import { auth } from '../utils/firebase.config';
 import { onAuthStateChanged } from 'firebase/auth';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getProducts } from '../actions/products.action';
 import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from '@firebase/util';
@@ -14,6 +14,10 @@ const Product = () => {
 
     const [user, setUser] = useState(null);
     console.log(user)
+
+    const [popUp, setPopUp] = useState(false)
+
+    const navigate = useNavigate();
 
     let { id } = useParams();
     const dispatch = useDispatch();
@@ -48,8 +52,9 @@ const Product = () => {
                 image : productClicked.image,
                 userId : user.uid
             }
-            dispatch(addToBasket(item, user.uid))
-            dispatch(getBasket(user.uid))
+            dispatch(addToBasket(item, user.uid));
+            dispatch(getBasket(user.uid));
+            setPopUp(true);
         }
         
     }
@@ -92,10 +97,16 @@ const Product = () => {
                         </div>
                         <p id='description'>{productClicked.description}</p>
                         <button onClick={()=>handleBasket()}>Ajouter au panier</button>
+                        {popUp && 
+                            <div className='popUp' onClick={()=> setPopUp(false)}>
+                                <h2>Article ajouté !</h2>
+                            </div>
+                        }
                     </div>
                 </Fragment>
                 :
-                <p>Connectez vous pour accéder au site, mettre comp loading </p>
+                
+                <p className='content connectMsg'>Connectez vous pour accéder au site</p>
             }
             <Footer />
         </Fragment>

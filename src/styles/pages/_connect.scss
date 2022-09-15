@@ -1,6 +1,7 @@
 .connect__container{
     @include flexCenterColumn;
     margin: 50px auto;
+    width: 100%;
 
 
     img{
@@ -20,7 +21,7 @@
         border: $borderBlack;
         min-width: 250px;
         width: 50%;
-        max-width: 600px;
+        max-width: 500px;
         
     }
 }

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Footer from '../components/Footer';
 
 const Error = () => {
     return (
-        <div className='content'>
-            Error
-            <Footer/>
-        </div>
+        <Fragment>
+            <div className='content connectMsg'>
+                Page introuvable
+            </div>
+            <Footer />
+        </Fragment>
     );
 };
 

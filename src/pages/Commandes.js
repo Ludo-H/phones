@@ -25,7 +25,7 @@ const Commandes = () => {
                 </div>
             </Fragment>
                 :
-                <p>Connectez vous pour accéder au site, mettre comp loading </p>
+                <p className='content connectMsg'>Connectez vous pour accéder au site</p>
             }
             <Footer/>
         </Fragment>
