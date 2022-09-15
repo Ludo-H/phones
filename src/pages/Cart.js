@@ -9,37 +9,51 @@ import { isEmpty } from '@firebase/util';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
-import {toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { collection, deleteDoc, doc, getDocs } from 'firebase/firestore';
 
 
 const Cart = () => {
 
+    // State pour avoir les infos user
+    /***************************************************************/
     const [user, setUser] = useState(null);
+    /***************************************************************/
 
+
+    // Variables pour prix total, contenu du panier
+    /***************************************************************/
     let totalPrice = 0;
-
     const basketOfUser = useSelector((state) => state.basketReducer)
-    console.log(basketOfUser)
     const dispatch = useDispatch()
+    /***************************************************************/
 
+
+    // Récupère le contenu du panier puis a chaque changement contenu user
+    /***************************************************************/
     useEffect(() => {
         !isEmpty(user) && dispatch(getBasket(user.uid))
     }, [user, dispatch])
+    /***************************************************************/
 
 
+    // Logique pour afficher page si user connecté
+    /***************************************************************/
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             console.log(currentUser);
         });
     }, [user])
+    /***************************************************************/
 
-    //paiement
+
+    // Logique de paiement
+    /***************************************************************/
     const navigate = useNavigate();
     const handleToken = async (token)=>{
         // console.log(token)
+
+        // On va l'envoyer au serveur
         const basket = {
             name : "All Products",
             totalprice : totalPrice
@@ -48,20 +62,17 @@ const Cart = () => {
             token, 
             basket
         })
-        console.log(response)
+        // console.log(response)
+
+        // On déstructuré les réponses
         let{status}= response.data
+
+        // Conditions par rapport aux réponses
         if(status === 'success'){
             navigate('/home');
-            toast.success('Votre commande est validée !', {
-                position : 'top-right',
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick :true,
-                pauseOnHover: false,
-                draggable : false,
-                progress: undefined
-            });
             const uid = auth.currentUser.uid;
+
+            // On récupère le panier de l'useer dans BDD pour le supprimer
             const carts = await getDocs(collection(db, 'Basket of user ' + uid)); 
             for(let snap of carts.docs){
                 deleteDoc(doc(db, 'Basket of user ' + uid, snap.id))
@@ -70,6 +81,7 @@ const Cart = () => {
             alert('Something wrong in payment')
         }
     }
+    /***************************************************************/
 
     return (
         <Fragment>
@@ -81,7 +93,7 @@ const Cart = () => {
                     <div className='container__basket'>
                         {!isEmpty(basketOfUser) && basketOfUser.map((article) => {
                             totalPrice += article.price * article.quantity;
-                            console.log(article)
+                            // console.log(article)
                             return (
                                 <div key={article.id} className='container__basket__article'>
                                     <img src={article.image} alt={`Phone ${article.name}`} />

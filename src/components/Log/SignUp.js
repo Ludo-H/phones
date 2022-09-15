@@ -3,12 +3,23 @@ import { auth } from '../../utils/firebase.config'
 
 const SignUp = () => {
 
+    // State pour récupérer le pseudo 
+    // State message d"erreur
+    /***************************************************************/
     const [displayName, setDisplayName] = useState('');
     const [error, setError] = useState(false)
+    /***************************************************************/
 
+
+    // Selections des inputs avec useRef
+    /***************************************************************/
     const registerEmail = useRef();
     const registerPassword = useRef();
+    /***************************************************************/
 
+
+    // Logique d'inscription
+    /***************************************************************/
     const handleRegister = async (e) => {
         e.preventDefault();
 
@@ -29,6 +40,7 @@ const SignUp = () => {
             console.log(error);
         }
     }
+    /***************************************************************/
 
     return (
         <Fragment>

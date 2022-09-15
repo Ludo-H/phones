@@ -6,14 +6,21 @@ import Footer from '../components/Footer';
 
 const Commandes = () => {
 
+    // State pour avoir infos user
+    /***************************************************************/
     const [user, setUser] = useState(null);
+    /***************************************************************/
 
+
+    // Logique pour savoir si user connecté
+    /***************************************************************/
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             console.log(currentUser);
         });
     }, [user])
+    /***************************************************************/
 
     return (
         <Fragment>

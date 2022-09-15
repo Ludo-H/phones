@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Footer from '../components/Footer';
 
+// Page pour les chemins url introuvables
 const Error = () => {
     return (
         <Fragment>

@@ -4,11 +4,21 @@ import { auth } from '../../utils/firebase.config';
 
 const Login = () => {
 
+    // State message erreur
+    /***************************************************************/
     const [error, setError] = useState(false);
+    /***************************************************************/
 
+
+    // Selections des inputs avec useRef
+    /***************************************************************/
     const loginEmail = useRef();
     const loginPassword = useRef();
+    /***************************************************************/
 
+
+    // Logique de connexion
+    /***************************************************************/
     const handleLogin = async (e) => {
         e.preventDefault();
 
@@ -23,6 +33,7 @@ const Login = () => {
             setError(true);
         }
     }
+    /***************************************************************/
 
     return (
         <Fragment>

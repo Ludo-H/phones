@@ -1,3 +1,6 @@
+// Serveur pour faire tourner stripe
+// Code réutilisable
+
 const express = require('express');
 const cors = require('cors');
 const {v4 : uuidv4} = require('uuid');
@@ -16,6 +19,8 @@ app.post('/checkout', async(req, res)=>{
     let error;
     let status;
     try {
+
+        // vérifier que la requete envoie bien un basket
         const {basket, token} = req.body;
         console.log(req.body);
         const customer = await stripe.customers.create({

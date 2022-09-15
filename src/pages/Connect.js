@@ -7,24 +7,37 @@ import SignUp from '../components/Log/SignUp';
 const Connect = () => {
 
     // state pour gérer l'affichage login/signup
+    /***************************************************************/
     const [loginButton, setLoginButton] = useState(true)
     const [signUpButton, setSignUpButton] = useState(false)
+    /***************************************************************/
 
+
+    // Logique de la modale connexion
+    /***************************************************************/
     const handleLogin = () => {
         setLoginButton(true);
         setSignUpButton(false);
     }
+    /***************************************************************/
 
+
+    // Logique de la modale s'inscrire
+    /***************************************************************/
     const handleSignUp = () => {
         setSignUpButton(true);
         setLoginButton(false);
     }
+    /***************************************************************/
 
     return (
         <Fragment>
             <Loader />
             <div className='connect__container content'>
-                <img src="./images/logo.jpg" alt="logo" />
+                <img 
+                    src="./images/logo.jpg" 
+                    alt="logo"
+                />
                 <div className='connect__container__buttons'>
                     <button onClick={() => handleLogin()}>
                         Se connecter

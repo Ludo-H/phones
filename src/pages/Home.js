@@ -11,23 +11,37 @@ import Footer from '../components/Footer';
 
 const Home = () => {
 
+    // State pour avoir infos user
+    /***************************************************************/
     const [user, setUser] = useState(null);
+    /***************************************************************/
 
+
+    // Produits de la BDD dans const
+    /***************************************************************/
     const dispatch = useDispatch();
     const products = useSelector((state) => state.productsReducer);
-    console.log(products)
+    // console.log(products)
+    /***************************************************************/
 
 
+    // Logique pour savoir si user connecté
+    /***************************************************************/
     useEffect(() => {
         onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             console.log(currentUser);
         });
     }, [user])
+    /***************************************************************/
 
+
+    // Récupère les produits dans BDD
+    /***************************************************************/
     useEffect(() => {
         dispatch(getProducts())
     }, [dispatch])
+    /***************************************************************/
 
     return (
         <Fragment>

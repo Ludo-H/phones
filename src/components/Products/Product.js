@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+// Props récupéré de la page Home
 const Product = ({ product }) => {
-
 
     return (
         <NavLink to={`/product/${product.id}`} >

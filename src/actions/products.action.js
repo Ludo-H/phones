@@ -2,9 +2,14 @@ import { collection,getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "../utils/firebase.config";
 
 
+/***************************************************************/
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_ONE_PRODUCT = 'GET_ONE_PRODUCT';
+/***************************************************************/
 
+
+// Avoir les produits
+/***************************************************************/
 export const getProducts = ()=>{
     return async (dispatch)=>{
         return await getDocs(collection(db, 'products'))
@@ -22,7 +27,11 @@ export const getProducts = ()=>{
         .catch((error)=> console.log(error))
     }
 }
+/***************************************************************/
 
+
+// Sélectionner un seul produit
+/***************************************************************/
 export const getOneProduct = (id)=>{
     return async (dispatch)=>{
         const docRef = doc(db, "products", id);
@@ -57,8 +66,4 @@ export const getOneProduct = (id)=>{
         }
     }
 }
-
-
-
-
-
+/***************************************************************/

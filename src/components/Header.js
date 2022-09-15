@@ -6,20 +6,33 @@ import { useSelector } from 'react-redux';
 
 const Header = ({ user }) => {
 
+    // State pour l'affichage des onglets
+    /***************************************************************/
     const [displayNav, setDisplayNav] = useState(false)
+    /***************************************************************/
 
+
+    // Récuperer le contenu du panier pour afficher pastille rouge ou non
+    /***************************************************************/
     const basketContent = useSelector((state)=>state.basketReducer)
-    console.log(basketContent)
+    /***************************************************************/
 
+
+    // Logique de déconnexion
+    /***************************************************************/
     const handleLogout = async () => {
         await signOut(auth);
         window.location = '/';
     }
+    /***************************************************************/
 
     return (
         <div className='header'>
             <NavLink to='/home'>
-                <img src="../images/logo.jpg" alt="logo" />
+                <img 
+                    src="../images/logo.jpg" 
+                    alt="logo" 
+                />
             </NavLink>
             <div className='header__nav'>
                 <p onClick={() => setDisplayNav(!displayNav)}>
