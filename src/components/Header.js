@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { signOut } from "firebase/auth";
 import { auth } from '../utils/firebase.config';
+import { useSelector } from 'react-redux';
 
 const Header = ({ user }) => {
 
     const [displayNav, setDisplayNav] = useState(false)
+
+    const basketContent = useSelector((state)=>state.basketReducer)
+    console.log(basketContent)
 
     const handleLogout = async () => {
         await signOut(auth);
@@ -23,9 +27,6 @@ const Header = ({ user }) => {
                 </p>
                 {displayNav &&
                     <ul>
-                        <NavLink to='/profil'>
-                            <li>Profil</li>
-                        </NavLink>
                         <NavLink to='/commandes'>
                             <li>Commandes</li>
                         </NavLink>
@@ -35,6 +36,7 @@ const Header = ({ user }) => {
             </div>
             <NavLink to='/cart'>
                 <i className="fa-solid fa-cart-shopping"></i>
+                {basketContent.length > 0 ? <div className='basketContent'></div> : ""}
             </NavLink>
         </div>
     );

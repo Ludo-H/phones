@@ -5,7 +5,6 @@ import Cart from '../pages/Cart';
 import Error from '../pages/Error';
 import Home from '../pages/Home';
 import Product from '../pages/Product';
-import Profil from '../pages/Profil';
 import Commandes from '../pages/Commandes';
 
 const Index = () => {
@@ -13,7 +12,6 @@ const Index = () => {
         <Router>
             <Routes>
                 <Route exact path='/' element={<Connect/>} />
-                <Route exact path='/profil' element={<Profil/>} />
                 <Route exact path='/home' element={<Home/>} />
                 <Route exact path='/cart' element={<Cart/>} />
                 <Route exact path='/commandes' element={<Commandes/>} />

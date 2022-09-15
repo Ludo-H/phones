@@ -52,6 +52,20 @@
             }
         }
     }
+
+    a{
+        position: relative;
+    }
+
+    .basketContent{
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        border-radius: 50px;
+        position: absolute;
+        top: 0;
+        right: -5px;
+    }
 }
 
 @keyframes appear {

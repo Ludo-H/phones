@@ -42,7 +42,7 @@ app.post('/checkout', async(req, res)=>{
         }, {idempotencyKey : key})
         status='success';
     } catch (error) {
-        console.log(error);
+        console.log(error + 'Serveur connecté ?');
         status='error';
     }
     res.json({status});

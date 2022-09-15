@@ -18,10 +18,12 @@ const Commandes = () => {
     return (
         <Fragment>
             {user ?
-                <div>
-                    <Header user={user} />
+            <Fragment>
+            <Header user={user} />
+                <div className='content'>
                     Commandes
                 </div>
+            </Fragment>
                 :
                 <p>Connectez vous pour accéder au site, mettre comp loading </p>
             }

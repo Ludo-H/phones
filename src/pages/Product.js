@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { isEmpty } from '@firebase/util';
 import Footer from '../components/Footer';
 import { addToBasket } from '../actions/basket.actions';
+import {getBasket} from '../actions/basket.actions'
 
 const Product = () => {
 
@@ -48,6 +49,7 @@ const Product = () => {
                 userId : user.uid
             }
             dispatch(addToBasket(item, user.uid))
+            dispatch(getBasket(user.uid))
         }
         
     }
@@ -61,14 +63,14 @@ const Product = () => {
     useEffect(() => {
         dispatch(getProducts())
     }, [dispatch])
-
+    
 
     return (
         <Fragment>
             {user ?
                 <Fragment>
                     <Header user={user} />
-                    <div className='container__product'>
+                    <div className='container__product content'>
                         <img src={productClicked.image} alt={`phone ${productClicked.name}`} />
                         <h2>{productClicked.name}</h2>
                         <p id='price'>{productClicked.price} €</p>

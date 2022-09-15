@@ -34,7 +34,7 @@ const Home = () => {
             {user ?
                 <Fragment>
                     <Header user={user} />
-                    <div className='container__categories'>
+                    <div className='container__categories content'>
                         <div className='container__categories__categorie'>
                             <h3>Apple</h3>
                             <div className='container__products'>

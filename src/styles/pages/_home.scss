@@ -2,7 +2,6 @@
     @include flexColumn;
     
     &__categorie{
-        border: $borderBlack;
 
         h3{
             font-size: 30px;
@@ -13,5 +12,9 @@
 }
 
 .container__products{
-    @include flexCenterColumn;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 20px;
 }

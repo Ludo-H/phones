@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 
 const Error = () => {
     return (
-        <div>
+        <div className='content'>
             Error
             <Footer/>
         </div>

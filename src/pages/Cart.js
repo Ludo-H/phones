@@ -74,8 +74,9 @@ const Cart = () => {
     return (
         <Fragment>
             {user && basketOfUser ?
-                <div>
-                    <Header user={user} />
+            <Fragment>
+                <Header user={user} />
+                <div className='content'>
                     <h2>Votre panier</h2>
                     <div className='container__basket'>
                         {!isEmpty(basketOfUser) && basketOfUser.map((article) => {
@@ -104,6 +105,7 @@ const Cart = () => {
                         >
                         </StripeCheckout>
                 </div>
+                </Fragment>
                 :
                 <p>Connectez vous pour accéder au site, mettre comp loading </p>
             }

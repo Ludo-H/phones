@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Routes from './routes/index'
 
 const App = () => {
   return (
-    <div>
+    <Fragment>
       <Routes/>
-    </div>
+    </Fragment>
   );
 };
 
