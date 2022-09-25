@@ -53,5 +53,5 @@ export const deleteBasketArticle = (userId, articleId)=>{
         })
         .catch((error)=> console.log(error))
     }
-}
+};
 /***************************************************************/
